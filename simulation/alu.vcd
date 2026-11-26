@@ -1,5 +1,5 @@
 $date
-	Sat Nov 14 16:22:40 2026
+	Thu Nov 26 13:44:58 2026
 $end
 $version
 	Icarus Verilog
@@ -14,13 +14,23 @@ $var wire 1 # CarryOut $end
 $var reg 8 $ A [7:0] $end
 $var reg 8 % B [7:0] $end
 $var reg 3 & Sel [2:0] $end
+$var integer 32 ' failed [31:0] $end
+$var integer 32 ( passed [31:0] $end
 $scope module uut $end
-$var wire 8 ' A [7:0] $end
-$var wire 8 ( B [7:0] $end
-$var wire 3 ) Sel [2:0] $end
+$var wire 8 ) A [7:0] $end
+$var wire 8 * B [7:0] $end
+$var wire 3 + Sel [2:0] $end
 $var wire 1 ! Zero $end
 $var reg 1 # CarryOut $end
-$var reg 8 * Result [7:0] $end
+$var reg 8 , Result [7:0] $end
+$upscope $end
+$scope task run_test $end
+$var reg 1 - expected_carry $end
+$var reg 8 . expected_result [7:0] $end
+$var reg 1 / expected_zero $end
+$var reg 8 0 ta [7:0] $end
+$var reg 8 1 tb [7:0] $end
+$var reg 3 2 ts [2:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -29,10 +39,18 @@ $dumpall
 $end
 #0
 $dumpvars
-b11001 *
-b0 )
-b1010 (
-b1111 '
+b0 2
+b1010 1
+b1111 0
+0/
+b11001 .
+0-
+b11001 ,
+b0 +
+b1010 *
+b1111 )
+b0 (
+b0 '
 b0 &
 b1010 %
 b1111 $
@@ -41,62 +59,124 @@ b11001 "
 0!
 $end
 #10000
-0!
-b1111 "
-b1111 *
-b1 &
-b1 )
-b101 %
-b101 (
-b10100 $
-b10100 '
-#20000
-0!
-b10001000 "
-b10001000 *
-b10 &
-b10 )
-b10101010 %
-b10101010 (
-b11001100 $
-b11001100 '
-#30000
-0!
-b11101110 "
-b11101110 *
-b11 &
-b11 )
-#40000
-0!
-b1100110 "
-b1100110 *
-b100 &
-b100 )
-#50000
+1#
 1!
 b0 "
-b0 *
-b0 &
-b0 )
-b0 %
-b0 (
-b0 $
-b0 '
-#60000
-1#
+b0 ,
 b1 %
-b1 (
+b1 *
 b11111111 $
-b11111111 '
-#70000
+b11111111 )
+1/
+1-
+b0 .
+b1 1
+b11111111 0
+b1 (
+#20000
+0!
+b1111 "
+b1111 ,
+0#
+b1 &
+b1 +
+b101 %
+b101 *
+b10100 $
+b10100 )
+0/
+0-
+b1111 .
+b1 2
+b101 1
+b10100 0
+b10 (
+#30000
+1#
 0!
 b11111011 "
-b11111011 *
-1#
-b1 &
-b1 )
+b11111011 ,
 b1010 %
-b1010 (
+b1010 *
 b101 $
-b101 '
+b101 )
+1-
+b11111011 .
+b1010 1
+b101 0
+b11 (
+#40000
+0!
+b10001000 "
+b10001000 ,
+0#
+b10 &
+b10 +
+b10101010 %
+b10101010 *
+b11001100 $
+b11001100 )
+0-
+b10001000 .
+b10 2
+b10101010 1
+b11001100 0
+b100 (
+#50000
+0!
+b11101110 "
+b11101110 ,
+b11 &
+b11 +
+b11101110 .
+b11 2
+b101 (
+#60000
+0!
+b1100110 "
+b1100110 ,
+b100 &
+b100 +
+b1100110 .
+b100 2
+b110 (
+#70000
+1!
+b0 "
+b0 ,
+b0 &
+b0 +
+b0 %
+b0 *
+b0 $
+b0 )
+1/
+b0 .
+b0 2
+b0 1
+b0 0
+b111 (
 #80000
+b1 &
+b1 +
+b101010 %
+b101010 *
+b101010 $
+b101010 )
+b1 2
+b101010 1
+b101010 0
+b1000 (
+#90000
+b101 &
+b101 +
+b1010 %
+b1010 *
+b101 $
+b101 )
+b101 2
+b1010 1
+b101 0
+b1001 (
+#100000
+b1010 (

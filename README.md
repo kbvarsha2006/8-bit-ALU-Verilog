@@ -48,5 +48,5 @@ vvp alu_tb
 yosys -p "read_verilog design/alu.v; hierarchy -top alu; synth -top alu; stat"
 
 ## Result
-All eight test cases completed successfully.
+All ten test cases passed with automatic result checking.
 The ALU performs arithmetic and logical operations correctly.
